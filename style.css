@@ -10,10 +10,9 @@
 }
 
 .fondoOscuro{
-    background-color: rgba(0,0,0,.4);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.7), rgba(255, 255, 255, 0));
     height: 100%;
     width: 100%;
-    transition: 300ms ease-in;
 }
 
 .botonReproducir {
@@ -24,7 +23,7 @@
     background: rgba(0,0,0,0);
     border: 2px solid;
     border-color: white;
-    transition: all 1s ease;
+    transition: all 700ms ease;
     position: relative;
   }
   .botonReproducir:hover {
