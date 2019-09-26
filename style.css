@@ -3,9 +3,13 @@ section h2{
 }
 
 .rowPrincipal{
-    background-color: black;
+    background-color: #242729;
 }
 
 .rowRed{
-    background-color: #ff00000a;
+    background-color: #1d0000;
+}
+
+.navbar{
+    background-color: #242729;
 }
