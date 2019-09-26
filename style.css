@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.peliculaDestacada{
+    background-image: url(./img/Peliculas/accion/john\ wick\ 3.jpg);
+    background-size: cover;
+    background-position-y: 3%;
+}
+
+.fondoOscuro{
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0));
+    height: 100%;
+    width: 100%;
+}
+
+.botonReproducir {
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 0.5em 1.2em;
+    background: rgba(0,0,0,0);
+    border: 2px solid;
+    border-color: white;
+    transition: all 700ms ease;
+    position: relative;
+  }
+  .botonReproducir:hover {
+    background: #e50914;
+    color: #fff !important;
+  }
