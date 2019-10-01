@@ -48,4 +48,18 @@ section h2{
 
 footer{
     background-color: #242729;
+    align-items: center;
+}
+
+thead tr th {
+    background-color: #242729 !important;
+}
+.red {
+    background-color: #ff00000a;
+}
+
+table th,
+table td {
+    border: 1px solid;
+    border-color: #454d55;
 }
