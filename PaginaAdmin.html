@@ -16,12 +16,12 @@
 <header>
 
     <nav class="navbar navbar-light py-4">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="index.html">
             <img src="./img/Logo_Netflix.png" class="pl-4 pt-2" width="200" alt="">
         </a>
         <ul class="nav justify-content-end mr-5 pr-5">
             <li class="nav-item">
-                <a class="nav-link p-0 text-light" href="#">Inicio<span class="border-right mx-3"></span></a>
+                <a class="nav-link p-0 text-light" href="index.html">Inicio<span class="border-right mx-3"></span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link p-0 text-light" href="#">Administrar</a>
@@ -35,13 +35,78 @@
 
     <section class="px-5 pb-5 text-light">
         <div class="d-flex justify-content-end">
-            <button class="btn btn-danger mt-5">Nueva Pelicula</button>
+            <button class="btn btn-danger mt-5" data-toggle="modal" data-target="#exampleModal">Nueva Pelicula</button>
+        </div>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Nueva Pelicula</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" class="text-light">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body p-4">
+
+                        <div class="mb-4">
+                            <label>Codigo</label>
+                            <input type="text" class="form-control" placeholder="Ingresar codigo" id="codigo"">
+                            <div class="invalid-feedback">
+                                Ingrese datos validos!
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label>Nombre</label>
+                            <input type="text" class="form-control" placeholder="Ingresar nombre" id="nombre">
+                            <div class="invalid-feedback">
+                                Ingrese datos validos!
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label>Descripcion</label>
+                            <textarea type="text" class="form-control" id="descripcion" rows="4"
+                                placeholder="Describir pelicula..."></textarea>
+                            <div class="invalid-feedback">
+                                Ingrese datos validos!
+                            </div>
+                        </div>
+
+                        <label>Categoria</label>
+                        <div class="input-group mb-4">
+                            <select class="custom-select" id="categoria">
+                                <option selected></option>
+                                <option value="accion">Accion</option>
+                                <option value="infantil">Infantil</option>
+                                <option value="suspenso">Suspenso</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group m-0">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="check">
+                                <label class="form-check-label" for="invalidCheck3">
+                                    Publicado
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
+                        <button type="button" class="btn btn-primary" onclick="agregarPelicula()">Guardar cambios</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <h2 class="lead py-5">Lista de peliculas</h2>
 
         <div class="table-responsive-sm">
-            <table class="table table-hover table-dark text-center">
+            <table class="table text-light text-center">
                 <thead>
                     <tr>
                         <th scope="col" class="py-4 align-middle">N°</th>
@@ -53,148 +118,30 @@
                     </tr>
                 </thead>
 
-                <tbody>
+                <tbody id="tbody">
                     <tr>
-                        <th scope="row" class="py-5 align-middle">3</th>
-                        <td class="py-5 align-middle">Pelicula3</td>
-                        <td class="py-5 align-middle">Categoria</td>
+                        <th scope="row" class="py-5 align-middle">1</th>
+                        <td class="py-5 align-middle">john wick 2</td>
+                        <td class="py-5 align-middle">Accion</td>
                         <td class="py-5 align-middle">Descripcion</td>
-                        <td class="py-5 align-middle"><input type="checkbox" class="text-center pt-2"></td>
+                        <td class="py-5 align-middle">
+                            <input type="checkbox" class="text-center pt-2">
+                        </td>
                         <td class="py-5 align-middle">
                             <div class="d-flex justify-content-center">
-                                <a href=""><i class="text-light fa fa-trash fa-2x px-2"></i></a>
-                                <a href=""><i class="text-light fa fa-pencil-square-o fa-2x px-2"></i></a>
-                                <a href=""><i class="text-light fa fa-star-o fa-2x"></i></a>
+                                <a class="botonesAdmin">
+                                    <i class="text-light fa fa-trash fa-2x px-2"></i>
+                                </a>
+                                <a class="botonesAdmin">
+                                    <i class="text-light fa fa-pencil-square-o fa-2x px-2"></i>
+                                </a>
+                                <a class="botonesAdmin">
+                                    <i class="text-light fa fa-star-o fa-2x"></i>
+                                </a>
                             </div>
                         </td>
                     </tr>
-                    <tr class="red">
-                        <th scope="row" class="py-5 align-middle red">3</th>
-                        <td class="py-5 align-middle red">Pelicula3</td>
-                        <td class="py-5 align-middle red">Categoria</td>
-                        <td class="py-5 align-middle red">Descripcion</td>
-                        <td class="py-5 align-middle red"><input type="checkbox" class="text-center pt-2"></td>
-                        <td class="py-5 align-middle red">
-                            <div class="d-flex justify-content-center">
-                                <a href=""><i class="text-light fa fa-trash fa-2x px-2"></i></a>
-                                <a href=""><i class="text-light fa fa-pencil-square-o fa-2x px-2"></i></a>
-                                <a href=""><i class="text-light fa fa-star-o fa-2x"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="py-5 align-middle">3</th>
-                        <td class="py-5 align-middle">Pelicula3</td>
-                        <td class="py-5 align-middle">Categoria</td>
-                        <td class="py-5 align-middle">Descripcion</td>
-                        <td class="py-5 align-middle"><input type="checkbox" class="text-center pt-2"></td>
-                        <td class="py-5 align-middle">
-                            <div class="d-flex justify-content-center">
-                                <a href=""><i class="text-light fa fa-trash fa-2x px-2"></i></a>
-                                <a href=""><i class="text-light fa fa-pencil-square-o fa-2x px-2"></i></a>
-                                <a href=""><i class="text-light fa fa-star-o fa-2x"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="red">
-                        <th scope="row" class="py-5 align-middle red">3</th>
-                        <td class="py-5 align-middle red">Pelicula3</td>
-                        <td class="py-5 align-middle red">Categoria</td>
-                        <td class="py-5 align-middle red">Descripcion</td>
-                        <td class="py-5 align-middle red"><input type="checkbox" class="text-center pt-2"></td>
-                        <td class="py-5 align-middle red">
-                            <div class="d-flex justify-content-center">
-                                <a href=""><i class="text-light fa fa-trash fa-2x px-2"></i></a>
-                                <a href=""><i class="text-light fa fa-pencil-square-o fa-2x px-2"></i></a>
-                                <a href=""><i class="text-light fa fa-star-o fa-2x"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="py-5 align-middle">3</th>
-                        <td class="py-5 align-middle">Pelicula3</td>
-                        <td class="py-5 align-middle">Categoria</td>
-                        <td class="py-5 align-middle">Descripcion</td>
-                        <td class="py-5 align-middle"><input type="checkbox" class="text-center pt-2"></td>
-                        <td class="py-5 align-middle">
-                            <div class="d-flex justify-content-center">
-                                <a href=""><i class="text-light fa fa-trash fa-2x px-2"></i></a>
-                                <a href=""><i class="text-light fa fa-pencil-square-o fa-2x px-2"></i></a>
-                                <a href=""><i class="text-light fa fa-star-o fa-2x"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="red">
-                        <th scope="row" class="py-5 align-middle red red">3</th>
-                        <td class="py-5 align-middle red red">Pelicula3</td>
-                        <td class="py-5 align-middle red red">Categoria</td>
-                        <td class="py-5 align-middle red red">Descripcion</td>
-                        <td class="py-5 align-middle red red"><input type="checkbox" class="text-center pt-2"></td>
-                        <td class="py-5 align-middle red red">
-                            <div class="d-flex justify-content-center">
-                                <a href=""><i class="text-light fa fa-trash fa-2x px-2"></i></a>
-                                <a href=""><i class="text-light fa fa-pencil-square-o fa-2x px-2"></i></a>
-                                <a href=""><i class="text-light fa fa-star-o fa-2x"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="py-5 align-middle">3</th>
-                        <td class="py-5 align-middle">Pelicula3</td>
-                        <td class="py-5 align-middle">Categoria</td>
-                        <td class="py-5 align-middle">Descripcion</td>
-                        <td class="py-5 align-middle"><input type="checkbox" class="text-center pt-2"></td>
-                        <td class="py-5 align-middle">
-                            <div class="d-flex justify-content-center">
-                                <a href=""><i class="text-light fa fa-trash fa-2x px-2"></i></a>
-                                <a href=""><i class="text-light fa fa-pencil-square-o fa-2x px-2"></i></a>
-                                <a href=""><i class="text-light fa fa-star-o fa-2x"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="red">
-                        <th scope="row" class="py-5 align-middle red">3</th>
-                        <td class="py-5 align-middle red">Pelicula3</td>
-                        <td class="py-5 align-middle red">Categoria</td>
-                        <td class="py-5 align-middle red">Descripcion</td>
-                        <td class="py-5 align-middle red"><input type="checkbox" class="text-center pt-2"></td>
-                        <td class="py-5 align-middle red">
-                            <div class="d-flex justify-content-center">
-                                <a href=""><i class="text-light fa fa-trash fa-2x px-2"></i></a>
-                                <a href=""><i class="text-light fa fa-pencil-square-o fa-2x px-2"></i></a>
-                                <a href=""><i class="text-light fa fa-star-o fa-2x"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="py-5 align-middle">3</th>
-                        <td class="py-5 align-middle">Pelicula3</td>
-                        <td class="py-5 align-middle">Categoria</td>
-                        <td class="py-5 align-middle">Descripcion</td>
-                        <td class="py-5 align-middle"><input type="checkbox" class="text-center pt-2"></td>
-                        <td class="py-5 align-middle">
-                            <div class="d-flex justify-content-center">
-                                <a href=""><i class="text-light fa fa-trash fa-2x px-2"></i></a>
-                                <a href=""><i class="text-light fa fa-pencil-square-o fa-2x px-2"></i></a>
-                                <a href=""><i class="text-light fa fa-star-o fa-2x"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="red">
-                        <th scope="row" class="py-5 align-middle red">3</th>
-                        <td class="py-5 align-middle red">Pelicula3</td>
-                        <td class="py-5 align-middle red">Categoria</td>
-                        <td class="py-5 align-middle red">Descripcion</td>
-                        <td class="py-5 align-middle red"><input type="checkbox" class="text-center pt-2"></td>
-                        <td class="py-5 align-middle red">
-                            <div class="d-flex justify-content-center">
-                                <a href=""><i class="text-light fa fa-trash fa-2x px-2"></i></a>
-                                <a href=""><i class="text-light fa fa-pencil-square-o fa-2x px-2"></i></a>
-                                <a href=""><i class="text-light fa fa-star-o fa-2x"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-
+                    
                 </tbody>
             </table>
         </div>
@@ -226,6 +173,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+        <script src="Admin.js"></script>
 </body>
 
 </html>
