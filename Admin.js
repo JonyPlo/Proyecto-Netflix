@@ -5,10 +5,9 @@ class Pelicula {
         this.descripcion = descripcion;
         this.categoria = categoria;
         this.imagen = imagen;
-        this.publicado = true;
+        this.publicado = false;
     }
 }
-
 
 
 var arregloPeliculas = [];
@@ -85,6 +84,7 @@ function dibujarTabla(arreglo) {
         celdaPortada.innerText = arreglo[i].imagen;
         celdaDescripcion.innerText = arreglo[i].descripcion;
         celdaCategoria.innerText = arreglo[i].categoria;
+        inputCheckbox.checked = arreglo[i].publicado;
 
         celdaCodigo.className = "py-5 align-middle";
         celdaNombre.className = "py-5 align-middle";
@@ -93,6 +93,8 @@ function dibujarTabla(arreglo) {
         celdaDescripcion.className = "py-5 align-middle";
         celdaCheckbox.className = "py-5 align-middle";
 
+        inputCheckbox.addEventListener("click", peliculaPublicada);
+        inputCheckbox.id = arreglo[i].codigo;
         inputCheckbox.className = "text-center pt-2";
         inputCheckbox.type = "checkbox";
 
@@ -143,7 +145,6 @@ function borrarTabla() {
 }
 
 function borrarFila() {
-    
     let _arregloViejo = JSON.parse(localStorage.getItem("Pelis"));
 
     let codigoPelicula = this.id;
@@ -207,13 +208,37 @@ function guardarPeliculaModificada() {
     localStorage.setItem("Pelis", JSON.stringify(_arregloViejo));
 
     existe = false;
-
     leer();
-
     $(ventanaModal).modal("hide");
 
 }
 
+function peliculaPublicada() {
+
+    let _arregloViejo = JSON.parse(localStorage.getItem("Pelis"));
+
+    let codigoPelicula = this.id;
+
+    for (i in _arregloViejo) {
+        if (_arregloViejo[i].codigo == codigoPelicula) {
+            if (_arregloViejo[i].publicado = !_arregloViejo[i].publicado) {
+            }
+        }
+    }
+
+    localStorage.setItem("Pelis", JSON.stringify(_arregloViejo));
+}
+
+
 function destacarFila() {
 
+    let _arregloViejo = JSON.parse(localStorage.getItem("Pelis"));
+
+    let codigoPelicula = this.id;
+
+    let _arregloNuevo = _arregloViejo.filter(function (peli) {
+        return peli.codigo == codigoPelicula
+    });
+
+    localStorage.setItem("PeliDestacada", JSON.stringify(_arregloNuevo));
 }
