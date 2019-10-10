@@ -24,7 +24,7 @@
                 <a class="nav-link p-0 text-light" href="index.html">Inicio<span class="border-right mx-3"></span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link p-0 text-light" href="#">Administrar</a>
+                <a class="nav-link p-0 text-light" href="paginaAdmin.html">Administrar</a>
             </li>
         </ul>
     </nav>
@@ -33,13 +33,15 @@
 
 <body class="bg-dark w-100">
 
+    <div class="contenedorBody">
+
     <section class="px-5 pb-5 text-light">
         <div class="d-flex justify-content-end">
             <button class="btn btn-danger mt-5" data-toggle="modal" data-target="#exampleModal">Nueva Pelicula</button>
         </div>
 
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
+            aria-hidden="true" onsubmit="return validarTodo()">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -52,7 +54,17 @@
 
                         <div class="mb-4">
                             <label>Codigo</label>
-                            <input type="text" class="form-control" placeholder="Ingresar codigo" id="codigo"">
+                            <input type="text" class="form-control" placeholder="Ingresar codigo" id="codigo" value=""
+                            onblur="verificarDatos(this)" onkeyup="verificarDatos(this)">
+                            <div class="invalid-feedback">
+                                Ingrese datos validos!
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label>Portada</label>
+                            <input type="text" class="form-control" placeholder="Ingresar la imagen de portada" id="imagen" value=""
+                            onblur="verificarDatos(this)" onkeyup="verificarDatos(this)">
                             <div class="invalid-feedback">
                                 Ingrese datos validos!
                             </div>
@@ -60,7 +72,8 @@
 
                         <div class="mb-4">
                             <label>Nombre</label>
-                            <input type="text" class="form-control" placeholder="Ingresar nombre" id="nombre">
+                            <input type="text" class="form-control" placeholder="Ingresar nombre" id="nombre" value=""
+                            onblur="verificarDatos(this)" onkeyup="verificarDatos(this)">
                             <div class="invalid-feedback">
                                 Ingrese datos validos!
                             </div>
@@ -69,7 +82,7 @@
                         <div class="mb-4">
                             <label>Descripcion</label>
                             <textarea type="text" class="form-control" id="descripcion" rows="4"
-                                placeholder="Describir pelicula..."></textarea>
+                                placeholder="Describir pelicula..." value="" onblur="verificarDatos(this)" onkeyup="verificarDatos(this)"></textarea>
                             <div class="invalid-feedback">
                                 Ingrese datos validos!
                             </div>
@@ -77,11 +90,12 @@
 
                         <label>Categoria</label>
                         <div class="input-group mb-4">
-                            <select class="custom-select" id="categoria">
+                            <select class="custom-select" id="categoria" value=""
+                            onblur="verificarDatos(this)" onkeyup="verificarDatos(this)">
                                 <option selected></option>
                                 <option value="accion">Accion</option>
-                                <option value="infantil">Infantil</option>
                                 <option value="suspenso">Suspenso</option>
+                                <option value="infantil">Infantil</option>
                             </select>
                         </div>
 
@@ -113,6 +127,7 @@
                         <th scope="col" class="py-4 align-middle">Pelicula</th>
                         <th scope="col" class="py-4 align-middle">Categoria</th>
                         <th scope="col" class="py-4 align-middle">Descripcion</th>
+                        <th scope="col" class="py-4 align-middle">Imagen</th>
                         <th scope="col" class="py-4 align-middle">Publicado</th>
                         <th scope="col" class="py-4 align-middle">Acciones</th>
                     </tr>
@@ -160,6 +175,8 @@
         </div>
     </footer>
 
+</div>
+
 
 
 
@@ -173,6 +190,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+        <script src="validacionForm.js"></script>
         <script src="Admin.js"></script>
 </body>
 
