@@ -5,6 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./slick/slick.css">
+    <link rel="stylesheet" href="./slick/slick-theme.css">
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
@@ -14,171 +16,141 @@
 </head>
 
 <header>
-
     <nav class="navbar navbar-light py-4">
         <a class="navbar-brand" href="index.html">
             <img src="./img/Logo_Netflix.png" class="pl-4 pt-2" width="200" alt="">
         </a>
         <ul class="nav justify-content-end mr-5 pr-5">
             <li class="nav-item">
-                <a class="nav-link p-0 text-light" href="index.html">Inicio<span class="border-right mx-3"></span></a>
+                <a class="nav-link p-0" href="index.html">Inicio<span class="border-right mx-3"></span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link p-0 text-light" href="paginaAdmin.html">Administrar</a>
+                <a class="nav-link p-0" href="paginaAdmin.html">Administrar</a>
             </li>
         </ul>
     </nav>
-
 </header>
 
 <body class="bg-dark w-100">
-
     <div class="contenedorBody">
+        <section class="px-5 pb-5 text-light">
+            <div class="d-flex justify-content-end">
+                <button class="btn btn-danger mt-5" data-toggle="modal" data-target="#exampleModal">Nueva
+                    Pelicula</button>
+            </div>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true" onsubmit="return validarTodo()">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Nueva Pelicula</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true" class="text-light">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body p-4">
 
-    <section class="px-5 pb-5 text-light">
-        <div class="d-flex justify-content-end">
-            <button class="btn btn-danger mt-5" data-toggle="modal" data-target="#exampleModal">Nueva Pelicula</button>
-        </div>
-
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true" onsubmit="return validarTodo()">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Nueva Pelicula</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true" class="text-light">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body p-4">
-
-                        <div class="mb-4">
-                            <label>Codigo</label>
-                            <input type="text" class="form-control" placeholder="Ingresar codigo" id="codigo" value=""
-                            onblur="verificarDatos(this)" onkeyup="verificarDatos(this)">
-                            <div class="invalid-feedback">
-                                Ingrese datos validos!
+                            <div class="mb-4">
+                                <label>Codigo</label>
+                                <input type="number" class="form-control" placeholder="Ingresar codigo" id="codigo"
+                                    value="" onblur="verificarDatos(this)" onkeyup="verificarDatos(this)">
+                                <div class="invalid-feedback">
+                                    Ingrese datos validos!
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="mb-4">
-                            <label>Portada</label>
-                            <input type="text" class="form-control" placeholder="Ingresar la imagen de portada" id="imagen" value=""
-                            onblur="verificarDatos(this)" onkeyup="verificarDatos(this)">
-                            <div class="invalid-feedback">
-                                Ingrese datos validos!
+                            <div class="mb-4">
+                                <label>Portada</label>
+                                <input type="text" class="form-control" placeholder="Ingresar la imagen de portada"
+                                    id="imagen" value="" onblur="verificarDatos(this)" onkeyup="verificarDatos(this)">
+                                <div class="invalid-feedback">
+                                    Ingrese datos validos!
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="mb-4">
-                            <label>Nombre</label>
-                            <input type="text" class="form-control" placeholder="Ingresar nombre" id="nombre" value=""
-                            onblur="verificarDatos(this)" onkeyup="verificarDatos(this)">
-                            <div class="invalid-feedback">
-                                Ingrese datos validos!
+                            <div class="mb-4">
+                                <label>Nombre</label>
+                                <input type="text" class="form-control" placeholder="Ingresar nombre" id="nombre"
+                                    value="" onblur="verificarDatos(this)" onkeyup="verificarDatos(this)">
+                                <div class="invalid-feedback">
+                                    Ingrese datos validos!
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="mb-4">
-                            <label>Descripcion</label>
-                            <textarea type="text" class="form-control" id="descripcion" rows="4"
-                                placeholder="Describir pelicula..." value="" onblur="verificarDatos(this)" onkeyup="verificarDatos(this)"></textarea>
-                            <div class="invalid-feedback">
-                                Ingrese datos validos!
+                            <div class="mb-4">
+                                <label>Descripcion</label>
+                                <textarea type="text" class="form-control" id="descripcion" rows="4"
+                                    placeholder="Describir pelicula..." value="" onblur="verificarDatos(this)"
+                                    onkeyup="verificarDatos(this)"></textarea>
+                                <div class="invalid-feedback">
+                                    Ingrese datos validos!
+                                </div>
                             </div>
-                        </div>
 
-                        <label>Categoria</label>
-                        <div class="input-group mb-4">
-                            <select class="custom-select" id="categoria" value=""
-                            onblur="verificarDatos(this)" onkeyup="verificarDatos(this)">
-                                <option selected></option>
-                                <option value="accion">Accion</option>
-                                <option value="suspenso">Suspenso</option>
-                                <option value="infantil">Infantil</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group m-0">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="check">
-                                <label class="form-check-label" for="invalidCheck3">
-                                    Publicado
-                                </label>
+                            <label>Categoria</label>
+                            <div class="input-group mb-4">
+                                <select class="custom-select" id="categoria" value="" onblur="verificarDatos(this)"
+                                    onkeyup="verificarDatos(this)">
+                                    <option selected></option>
+                                    <option value="accion">Accion</option>
+                                    <option value="suspenso">Suspenso</option>
+                                    <option value="infantil">Infantil</option>
+                                </select>
                             </div>
-                        </div>
 
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
-                        <button type="button" class="btn btn-primary" onclick="guardarPelicula()">Guardar cambios</button>
+                            <div class="form-group m-0">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="check">
+                                    <label class="form-check-label" for="invalidCheck3">
+                                        Publicado
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
+                            <button type="button" class="btn btn-primary" onclick="guardarPelicula()">Guardar
+                                cambios</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <h2 class="lead py-5">Lista de peliculas</h2>
+            <h2 class="lead py-5">Lista de peliculas</h2>
 
-        <div class="table-responsive-sm">
-            <table class="table text-light text-center">
-                <thead>
-                    <tr>
-                        <th scope="col" class="py-4 align-middle">N°</th>
-                        <th scope="col" class="py-4 align-middle">Pelicula</th>
-                        <th scope="col" class="py-4 align-middle">Categoria</th>
-                        <th scope="col" class="py-4 align-middle">Descripcion</th>
-                        <th scope="col" class="py-4 align-middle">Imagen</th>
-                        <th scope="col" class="py-4 align-middle">Publicado</th>
-                        <th scope="col" class="py-4 align-middle">Acciones</th>
-                    </tr>
-                </thead>
-
-                <tbody id="tbody">
-                    <tr>
-                        <th scope="row" class="py-5 align-middle">1</th>
-                        <td class="py-5 align-middle">john wick 2</td>
-                        <td class="py-5 align-middle">Accion</td>
-                        <td class="py-5 align-middle">Descripcion</td>
-                        <td class="py-5 align-middle">
-                            <input type="checkbox" class="text-center pt-2">
-                        </td>
-                        <td class="py-5 align-middle">
-                            <div class="d-flex justify-content-center">
-                                <a class="botonesAdmin">
-                                    <i class="text-light fa fa-trash fa-2x px-2"></i>
-                                </a>
-                                <a class="botonesAdmin">
-                                    <i class="text-light fa fa-pencil-square-o fa-2x px-2"></i>
-                                </a>
-                                <a class="botonesAdmin">
-                                    <i class="text-light fa fa-star-o fa-2x"></i>
-                                </a>
-                            </div>
-                        </td>
-                    </tr>
-                    
-                </tbody>
-            </table>
-        </div>
-    </section>
-
-    <footer>
-        <div class="text-light p-5">
-            <div class="float-right">
-                <i class="fa px-2 fa-2x fa-facebook-official" aria-hidden="true"></i>
-                <i class="fa px-2 fa-2x fa-instagram" aria-hidden="true"></i>
-                <i class="fa px-2 fa-2x fa-twitter-square" aria-hidden="true"></i>
+            <div class="table-responsive-sm">
+                <table class="table text-light text-center">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="py-4 align-middle">N°</th>
+                            <th scope="col" class="py-4 align-middle">Pelicula</th>
+                            <th scope="col" class="py-4 align-middle">Categoria</th>
+                            <th scope="col" class="py-4 align-middle">Descripcion</th>
+                            <th scope="col" class="py-4 align-middle">Imagen</th>
+                            <th scope="col" class="py-4 align-middle">Publicado</th>
+                            <th scope="col" class="py-4 align-middle">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody"></tbody>
+                </table>
             </div>
-            <div class="d-flex justify-content-center">
-                <div class="lead">© All right reserved.</div>
+        </section>
+
+        <footer>
+            <div class="text-light p-5">
+                <div class="float-right">
+                    <i class="fa px-2 fa-2x fa-facebook-official" aria-hidden="true"></i>
+                    <i class="fa px-2 fa-2x fa-instagram" aria-hidden="true"></i>
+                    <i class="fa px-2 fa-2x fa-twitter-square" aria-hidden="true"></i>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <div class="lead">© All right reserved.</div>
+                </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
-</div>
-
-
-
+    </div>
 
     <!---Scripts--->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -190,8 +162,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-        <script src="validacionForm.js"></script>
-        <script src="Admin.js"></script>
+    <script src="validacionForm.js"></script>
+    <script src="Admin.js"></script>
 </body>
 
 </html>

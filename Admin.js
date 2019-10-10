@@ -21,7 +21,6 @@ if (localStorage.length > 0 && arregloPeliculas == 0) {
 }
 
 
-
 function agregarPelicula() {
     let inputCodigo = document.getElementById("codigo").value;
     let inputNombre = document.getElementById("nombre").value;
@@ -221,11 +220,9 @@ function peliculaPublicada() {
 
     for (i in _arregloViejo) {
         if (_arregloViejo[i].codigo == codigoPelicula) {
-            if (_arregloViejo[i].publicado = !_arregloViejo[i].publicado) {
-            }
+            _arregloViejo[i].publicado = !_arregloViejo[i].publicado
         }
     }
-
     localStorage.setItem("Pelis", JSON.stringify(_arregloViejo));
 }
 

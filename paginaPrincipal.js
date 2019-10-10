@@ -58,16 +58,19 @@ function leerPeliculaDestacada() {
     let arregloPeliculas = JSON.parse(localStorage.getItem("PeliDestacada"));
 
     let titulo = document.getElementById("tituloDestacado");
-    let descripcion = document.getElementById ("descripcionDestacada");
-    let fondo = document.getElementById ("fondoDestacado");
+    let descripcion = document.getElementById("descripcionDestacada");
+    let fondo = document.getElementById("fondoDestacado");
 
     titulo.innerText = arregloPeliculas[0].nombre;
     descripcion.innerText = arregloPeliculas[0].descripcion;
 
-    if (arregloPeliculas[0].categoria == "accion"){
-        fondo.setAttribute("style", "background-image: url(./img/Peliculas/accion/"+ arregloPeliculas[0].imagen +");");
-        
-    } else if (arregloPeliculas[0].categoria == "infantil"){
-        fondo.setAttribute("style", "background-image: url(./img/Peliculas/infantil/"+ arregloPeliculas[0].imagen +");");
+    if (arregloPeliculas[0].categoria == "accion") {
+        fondo.setAttribute("style", "background-image: url(./img/Peliculas/accion/" + arregloPeliculas[0].imagen + ");");
+
+    } else if (arregloPeliculas[0].categoria == "infantil") {
+        fondo.setAttribute("style", "background-image: url(./img/Peliculas/infantil/" + arregloPeliculas[0].imagen + ");");
+
+    } else if (arregloPeliculas[0].categoria == "suspenso") {
+        fondo.setAttribute("style", "background-image: url(./img/Peliculas/suspenso/" + arregloPeliculas[0].imagen + ");");
     }
 }
