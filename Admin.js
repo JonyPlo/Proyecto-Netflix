@@ -26,9 +26,9 @@ function agregarPelicula() {
     let inputNombre = document.getElementById("nombre").value;
     let inputDescripcion = document.getElementById("descripcion").value;
     let selectCategoria = document.getElementById("categoria").value;
-    let inputPortada = document.getElementById("imagen").value;
+    let inputImagen = document.getElementById("imagen").value;
 
-    var objetoPelicula = new Pelicula(inputCodigo, inputNombre, inputDescripcion, selectCategoria, inputPortada);
+    var objetoPelicula = new Pelicula(inputCodigo, inputNombre, inputDescripcion, selectCategoria, inputImagen);
 
     arregloPeliculas.push(objetoPelicula);
 
@@ -65,7 +65,7 @@ function dibujarTabla(arreglo) {
         let celdaNombre = document.createElement("td");
         let celdaCategoria = document.createElement("td");
         let celdaDescripcion = document.createElement("td");
-        let celdaPortada = document.createElement("td");
+        let celdaImagen = document.createElement("td");
         let celdaCheckbox = document.createElement("td");
         let inputCheckbox = document.createElement("input");
 
@@ -80,7 +80,7 @@ function dibujarTabla(arreglo) {
 
         celdaCodigo.innerText = arreglo[i].codigo;
         celdaNombre.innerText = arreglo[i].nombre;
-        celdaPortada.innerText = arreglo[i].imagen;
+        celdaImagen.innerText = arreglo[i].imagen;
         celdaDescripcion.innerText = arreglo[i].descripcion;
         celdaCategoria.innerText = arreglo[i].categoria;
         inputCheckbox.checked = arreglo[i].publicado;
@@ -88,7 +88,7 @@ function dibujarTabla(arreglo) {
         celdaCodigo.className = "py-5 align-middle";
         celdaNombre.className = "py-5 align-middle";
         celdaCategoria.className = "py-5 align-middle";
-        celdaPortada.className = "py-5 align-middle";
+        celdaImagen.className = "py-5 align-middle";
         celdaDescripcion.className = "py-5 align-middle";
         celdaCheckbox.className = "py-5 align-middle";
 
@@ -116,7 +116,7 @@ function dibujarTabla(arreglo) {
         tr.appendChild(celdaNombre);
         tr.appendChild(celdaCategoria);
         tr.appendChild(celdaDescripcion);
-        tr.appendChild(celdaPortada);
+        tr.appendChild(celdaImagen);
         tr.appendChild(celdaCheckbox);
         celdaCheckbox.appendChild(inputCheckbox);
         tr.appendChild(celdaBotones);
@@ -196,10 +196,10 @@ function guardarPeliculaModificada() {
 
     for (i in _arregloViejo) {
         if (_arregloViejo[i].codigo == inputCodigo) {
-            _arregloViejo[i].nombre = document.getElementById("nombre").value
-            _arregloViejo[i].descripcion = document.getElementById("descripcion").value
-            _arregloViejo[i].categoria = document.getElementById("categoria").value
-            _arregloViejo[i].imagen = document.getElementById("imagen").value
+            _arregloViejo[i].nombre = document.getElementById("nombre").value;
+            _arregloViejo[i].descripcion = document.getElementById("descripcion").value;
+            _arregloViejo[i].categoria = document.getElementById("categoria").value;
+            _arregloViejo[i].imagen = document.getElementById("imagen").value;
         }
     }
 

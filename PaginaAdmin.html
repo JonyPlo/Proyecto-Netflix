@@ -16,11 +16,12 @@
 </head>
 
 <header>
-    <nav class="navbar navbar-light py-4">
+    <nav class="navbar navbar-light py-md-4 py-lg-4">
         <a class="navbar-brand" href="index.html">
-            <img src="./img/Logo_Netflix.png" class="pl-4 pt-2" width="200" alt="">
+            <img src="./img/Logo_Netflix.png" class="logo-TabletsAndPc pl-4 pt-2 d-none d-md-block" width="200">
+            <img src="./img/netflix celulares logo-png.png" class="logo-mobile d-block d-md-none">
         </a>
-        <ul class="nav justify-content-end mr-5 pr-5">
+        <ul class="nav mr-lg-5 pr-md-5">
             <li class="nav-item">
                 <a class="nav-link p-0" href="index.html">Inicio<span class="border-right mx-3"></span></a>
             </li>
@@ -33,9 +34,9 @@
 
 <body class="bg-dark w-100">
     <div class="contenedorBody">
-        <section class="px-5 pb-5 text-light">
+        <section class="px-3 px-md-5 pb-5 text-light">
             <div class="d-flex justify-content-end">
-                <button class="btn btn-danger mt-5" data-toggle="modal" data-target="#exampleModal">Nueva
+                <button class="botonmodal mt-4 mt-md-5" data-toggle="modal" data-target="#exampleModal">Nueva
                     Pelicula</button>
             </div>
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -117,9 +118,9 @@
                 </div>
             </div>
 
-            <h2 class="lead py-5">Lista de peliculas</h2>
+            <h2 class="lead py-4 py-xl-5 text-center text-md-left">Lista de peliculas</h2>
 
-            <div class="table-responsive-sm">
+            <div class="table-responsive">
                 <table class="table text-light text-center">
                     <thead>
                         <tr>
@@ -138,14 +139,14 @@
         </section>
 
         <footer>
-            <div class="text-light p-5">
-                <div class="float-right">
+            <div class="text-light containerfooter">
+                <div class="float-md-right text-center pt-4 pb-3 py-md-0">
                     <i class="fa px-2 fa-2x fa-facebook-official" aria-hidden="true"></i>
                     <i class="fa px-2 fa-2x fa-instagram" aria-hidden="true"></i>
                     <i class="fa px-2 fa-2x fa-twitter-square" aria-hidden="true"></i>
                 </div>
-                <div class="d-flex justify-content-center">
-                    <div class="lead">© All right reserved.</div>
+                <div class="d-flex justify-content-md-center containertext">
+                    <div class="lead footertext">© All right reserved.</div>
                 </div>
             </div>
         </footer>
